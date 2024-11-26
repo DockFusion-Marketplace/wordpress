@@ -1,0 +1,42 @@
+#User defined
+user:
+  wp_debug:
+    label:
+      Enable WordPress debug mode?
+    type:
+      checkbox
+    hint:
+      Check to enable WordPress debug mode
+    target:
+      WORDPRESS_DEBUG
+
+  MariaDB_version:
+    label:
+      MariaDB version
+    hint:
+      Select a MariaDB version from the list above
+    type:
+      select
+    values:
+      - 10.7
+      - 10.6
+      - 10.5
+    target:
+      MARIADB_VERSION
+
+#System defaults
+
+system:
+  show_localpath_selector:
+    true
+  #For collecting and storing DB in .env
+  #db/user/password
+  db_credentials:
+    true
+  #Generate public ports for the docker image
+  ports:
+    http:
+      WP_HTTP_PORT
+    others:
+      - MYSQL_PORT
+      - PMA_PORT
