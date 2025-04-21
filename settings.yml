@@ -1,42 +1,57 @@
 #User defined
 user:
-  wp_debug:
+  WP_version:
     label:
-      Enable WordPress debug mode?
-    type:
-      checkbox
+      WordPress version
     hint:
-      Check to enable WordPress debug mode
-    target:
-      WORDPRESS_DEBUG
-
-  MariaDB_version:
-    label:
-      MariaDB version
-    hint:
-      Select a MariaDB version from the list above
+      Select WordPress version
     type:
       select
     values:
-      - 10.7
-      - 10.6
-      - 10.5
+      - "6.8"
+      - "6.7"
+      - "6.6"
+      - "6.5"
+      - "6.4"
+      - "6.3"
+      - "6.2"
+      - "6.1"
+      - "6.0"
+      - "5.9"
+      - "4.9"
     target:
-      MARIADB_VERSION
+      WORDPRESS_VERSION
+
+  wp_debug:
+    label:
+      Enable WordPress debug mode?
+    hint:
+      Check to enable WordPress debug mode
+    type:
+      checkbox
+    target:
+      WORDPRESS_DEBUG
+
+  wp_db_host:
+    label:
+      Database host
+    hint:
+      The host name of your database (MySQL or MariaDB)
+    type:
+      text-input
+    target:
+      DB_HOST
 
 #System defaults
-
 system:
   show_localpath_selector:
     true
-  #For collecting and storing DB in .env
-  #db/user/password
   db_credentials:
     true
+    
   #Generate public ports for the docker image
   ports:
     http:
       WP_HTTP_PORT
     others:
-      - MYSQL_PORT
       - PMA_PORT
